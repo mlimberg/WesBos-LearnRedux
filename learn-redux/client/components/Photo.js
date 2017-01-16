@@ -25,15 +25,14 @@ export default class Photo extends Component {
         </div>
 
         <figcaption>
-          <p>
-            {post.caption}
-          </p>
+          <p>{post.caption}</p>
           <div className='control-buttons'>
-            <button className='likes'>
+            <button onClick={this.props.increment.bind(this, i)} className='likes'>
               &hearts; {post.likes}
             </button>
             <Link className='button' to={`/view/${post.code}`}>
               <span className='comment-count'>
+                  <span className="speech-bubble"></span>
                 {comments[post.code] ? comments[post.code].length : 0}
               </span>
             </Link>
